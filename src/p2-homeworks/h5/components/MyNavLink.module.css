@@ -1,0 +1,61 @@
+.navlink {
+    transition: 0.5s;
+    margin: 5px;
+    border: 2px #61dafb solid;
+    border-radius: 10px;
+    padding: 5px;
+    background: black;
+    color: #61dafb;
+    text-decoration: none;
+}
+
+.navlink:hover {
+    transition: 0.5s;
+    background: white;
+    margin: 0px 10px 0px 10px;
+
+}
+
+.flex {
+    display: flex;
+    height: 70px;
+}
+
+.foldable {
+
+}
+
+.nameNavLink {
+    margin: 3px;
+    transition: 0.5s;
+    font-size: 25px;
+    display: flex;
+    height: 35px;
+    background: black;
+    border: 2px #61dafb solid;
+    border-radius: 10px;
+    color: white;
+
+}
+
+.nameNavLink:hover{
+    transition: 0.5s;
+    border: 2px red solid;
+    color: red;
+}
+
+.foldable .opened {
+
+    display: flex;
+    transition: 1s;
+    left: -700px;
+    position: relative;
+}
+
+.foldable .closed {
+
+    display: flex;
+    transition: 1s;
+    position: relative;
+    left: 20px;
+}

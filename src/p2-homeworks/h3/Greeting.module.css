@@ -5,3 +5,19 @@
 .error {
     border: 1px solid red;
 }
+
+.buttonDisabled {
+    visibility: hidden;
+}
+
+.button_style {
+    background: darkcyan;
+    border: #61dafb;
+    border-radius: 10px;
+}
+
+.span_error{
+}
+.input_container{
+
+}
