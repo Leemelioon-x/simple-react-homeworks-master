@@ -2,9 +2,11 @@ import React, {useState} from 'react'
 import {homeWorkReducer} from './bll/homeWorkReducer'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 
-// export type UserType =
+ export type UsersType =  {_id:number, name: string, age: number}[]
+ export type UserType =  {_id:number, name: string, age: number}
 
-const initialPeople = [
+
+export const initialPeople: UsersType= [
     {_id: 0, name: 'Кот', age: 3},
     {_id: 1, name: 'Александр', age: 66},
     {_id: 2, name: 'Коля', age: 16},
@@ -14,16 +16,29 @@ const initialPeople = [
 ]
 
 function HW8() {
-    const [people, setPeople] = useState<any>(initialPeople) // need to fix any
+    const [people, setPeople] = useState<UsersType>(initialPeople) // need to fix
 
     // need to fix any
-    const finalPeople = people.map((p: any) => (
+    const finalPeople = people.map((p:UserType) => (
         <div key={p._id}>
-            some name, age
+            <h3>{p.name}, Age:{p.age}</h3>
         </div>
     ))
 
-    const sortUp = () => setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'}))
+    const sortUp = () => {
+        setPeople(homeWorkReducer(initialPeople, {type: 'SORT', payload: 'up'}))
+        console.log(people)
+    }
+    const sortDown = () => {
+        setPeople(homeWorkReducer(initialPeople, {type: 'SORT', payload: 'down'}))
+        console.log(people)
+    }
+    const sortAge = () => {
+        setPeople(homeWorkReducer(initialPeople, {type: 'CHECK', payload: 18}))
+        console.log(people)
+    }
+
+/*    const sortDown = () => setPeople(homeWorkReducer(initialPeople, {type: 'SORT', payload: 'down'}))*/
 
     return (
         <div>
@@ -34,7 +49,9 @@ function HW8() {
             {finalPeople}
 
             <div><SuperButton onClick={sortUp}>sort up</SuperButton></div>
-            <div>sort down</div>
+            <div><SuperButton onClick={sortDown}>sort down</SuperButton></div>
+            <div><SuperButton onClick={sortAge}>sort Age:18</SuperButton></div>
+         {/*   <div><SuperButton onClick={sortDown}>sort down</SuperButton></div>*/}
             check 18
 
             <hr/>
